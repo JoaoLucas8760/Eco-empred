@@ -1,0 +1,6 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="icon icon--search" viewBox="0 0 21 21" role="presentation" width="21"  height="21" >
+      <g stroke-width="2px" stroke="#FFFFFF" fill="none" fill-rule="evenodd">
+        <path d="M19 19l-5-5" stroke-linecap="square" stroke="#FFFFFF" fill="none" stroke-width="2px"></path>
+        <circle cx="8.5" cy="8.5" r="7.5" stroke="#FFFFFF" fill="none" stroke-width="2px"></circle>
+      </g>
+    </svg>
