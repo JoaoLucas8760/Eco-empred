@@ -1,13 +1,14 @@
 import React from "react";
-import { Container, Label } from "./styles";
+import { Container, Label, InputStyle } from "./styles";
 
 interface props {
-  label: string;
+  label?: string;
   value: string;
   onChange: any;
   placeholder: string;
   width?: string;
   maxLength?: number;
+  type?: string;
 }
 
 export default function Input({
@@ -17,15 +18,16 @@ export default function Input({
   placeholder,
   width,
   maxLength,
+  type,
 }: props) {
   return (
     <Container>
       <Label>{label}</Label>
 
-      <input
+      <InputStyle
         style={{
           padding: "1rem",
-          border: "1px solid #D0D0D0",
+
           borderRadius: "0.3rem",
           width: width,
         }}
@@ -34,6 +36,7 @@ export default function Input({
         onChange={onChange}
         maxLength={maxLength}
         required
+        type={type}
       />
     </Container>
   );

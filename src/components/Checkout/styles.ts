@@ -28,6 +28,7 @@ export const WarrantyContainer = styled.div`
   padding: 2rem;
   background-color: #ffffff;
   box-shadow: -4px 1px 24px -10px rgba(166, 166, 166, 1);
+  margin-bottom: 4rem;
 `;
 
 export const WarrantyBox = styled.div`
@@ -60,3 +61,26 @@ export const SubTitle = styled.h1`
   color: #666666;
   line-height: 20px;
 `;
+
+export const ProductBox = styled.div`
+  display: flex;
+`;
+
+export const Footer = styled.div`
+  width: 100%;
+  border-top: 1px solid #d0d0d0;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LineCards = styled.div`
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const Card = styled.img``;

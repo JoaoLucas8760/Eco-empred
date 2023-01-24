@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.form`
   border: 2px solid #999999;
   width: 30rem;
-  height: 35rem;
+
   border-radius: 0.4rem;
   padding: 2rem;
   background-color: #ffffff;

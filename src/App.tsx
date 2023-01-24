@@ -4,6 +4,7 @@ import Body from "./components/Carrosel";
 import Checkout from "./components/Checkout/Index";
 
 import Header from "./components/Header";
+
 import "./styles/styles.css";
 
 function App() {

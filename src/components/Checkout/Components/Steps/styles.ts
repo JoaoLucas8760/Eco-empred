@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10rem;
+  gap: 2rem;
   margin-bottom: 2rem;
 `;
 
@@ -35,4 +35,25 @@ export const IndexStep = styled.h1`
   color: #fdfdfe;
   font-family: "Rubik", sans-serif;
   font-size: 1rem;
+`;
+
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 10rem;
+`;
+
+export const TitleActive = styled.h1`
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  color: #000000;
+`;
+
+export const Title = styled.h1`
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  color: #666666;
+  font-weight: 400;
 `;
