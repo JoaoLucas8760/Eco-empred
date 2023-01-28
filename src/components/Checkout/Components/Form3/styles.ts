@@ -7,6 +7,14 @@ export const Container = styled.form`
   border-radius: 0.4rem;
   padding: 2rem;
   background-color: #ffffff;
+
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const Top = styled.div`
@@ -68,6 +76,20 @@ export const Checked = styled.div`
   border-radius: 50%;
 `;
 
+export const Uncheckd = styled.div`
+  background-color: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e6e6e6;
+  &:hover {
+    border: 1px solid #333333;
+  }
+`;
+
 export const Paragraph = styled.h1`
   font-family: "Rubik", sans-serif;
   font-weight: 400;
@@ -82,6 +104,10 @@ export const LineCards = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  @media (max-width: 430px) {
+    display: block;
+    justify-content: space-between;
+  }
 `;
 
 export const Card = styled.img``;
@@ -136,4 +162,24 @@ export const BtnContinuar = styled.button`
   font-weight: 700;
 `;
 
-export const PixContainer = styled.div``;
+export const PixContainer = styled.div`
+  margin-top: 1rem;
+  padding: 1.35rem;
+  border: 1.5px solid #e6e6e6;
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  &:hover {
+    border: 1px solid #333333;
+    Uncheckd {
+      border: 1px solid #333333;
+    }
+  }
+`;
+
+export const Price = styled.h1`
+  font-family: "Rubik", sans-serif;
+  font-size: 1.35rem;
+  color: #44c485;
+`;

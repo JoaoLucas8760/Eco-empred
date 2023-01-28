@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Admin from "./components/Admin";
 import Body from "./components/Carrosel";
 import Checkout from "./components/Checkout/Index";
 
@@ -25,6 +26,7 @@ function App() {
         />
 
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );

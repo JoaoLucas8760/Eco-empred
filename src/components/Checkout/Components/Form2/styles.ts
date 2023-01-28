@@ -7,6 +7,13 @@ export const Container = styled.div`
   border-radius: 0.4rem;
   padding: 2rem;
   background-color: #ffffff;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const Top = styled.div`

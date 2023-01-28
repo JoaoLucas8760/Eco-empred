@@ -1,0 +1,24 @@
+.card {
+  position: relative;
+  width: 20rem;
+  height: 11.5rem;
+}
+
+.card .flip {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+/* .flip:hover {
+  transform: rotateY(180deg);
+} */
+
+.frontCard,
+.backCard {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.backCard {
+  transform: rotateY(180deg);
+}

@@ -8,6 +8,9 @@ export const Label = styled.h1`
   font-weight: 400;
   font-family: "Rubik", sans-serif;
   margin-bottom: 0.4rem;
+  @media (max-width: 380px) {
+    font-size: 0.746rem;
+  }
 `;
 
 export const InputStyle = styled.input`

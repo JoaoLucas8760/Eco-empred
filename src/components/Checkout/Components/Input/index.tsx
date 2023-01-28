@@ -9,6 +9,8 @@ interface props {
   width?: string;
   maxLength?: number;
   type?: string;
+  onBlur?: any;
+  onFocus?: any;
 }
 
 export default function Input({
@@ -19,6 +21,8 @@ export default function Input({
   width,
   maxLength,
   type,
+  onBlur,
+  onFocus,
 }: props) {
   return (
     <Container>
@@ -37,6 +41,8 @@ export default function Input({
         maxLength={maxLength}
         required
         type={type}
+        onBlur={onBlur}
+        onFocus={onFocus}
       />
     </Container>
   );

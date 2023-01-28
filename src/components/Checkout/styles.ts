@@ -2,16 +2,23 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const Header = styled.div`
   height: 5rem;
   background: #ffffff;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 52rem;
-  margin-bottom: 3rem;
+  justify-content: space-between;
+  padding: 0rem 10rem 0rem 10rem;
+  @media (max-width: 430px) {
+    width: 20rem;
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -29,6 +36,13 @@ export const WarrantyContainer = styled.div`
   background-color: #ffffff;
   box-shadow: -4px 1px 24px -10px rgba(166, 166, 166, 1);
   margin-bottom: 4rem;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const WarrantyBox = styled.div`
@@ -73,6 +87,13 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const LineCards = styled.div`
@@ -81,6 +102,9 @@ export const LineCards = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  @media (max-width: 430px) {
+    display: block;
+  }
 `;
 
 export const Card = styled.img``;

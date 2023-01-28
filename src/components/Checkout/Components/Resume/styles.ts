@@ -15,6 +15,13 @@ export const Container = styled.div`
   transition: 10s;
   font-family: "Rubik", sans-serif;
   transition: all 0.2s ease 0s;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -54,6 +61,13 @@ export const OpenContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   transition: all 0.2s ease 0s;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const BoxImage = styled.div`

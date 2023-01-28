@@ -135,7 +135,7 @@ export default function Form2() {
                 onChange={({ target }: any) => {
                   setBairroValue(target.value);
                 }}
-                width={"128%"}
+                width={"90%"}
               />
             </div>
 

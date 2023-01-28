@@ -6,6 +6,13 @@ export const Container = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 
 export const Step = styled.div`

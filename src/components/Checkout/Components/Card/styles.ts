@@ -1,12 +1,56 @@
-import styled from "styled-components";
+import { Card } from "./../../styles";
+import styled, { keyframes } from "styled-components";
 
-export const Container = styled.div`
-  width: 20rem;
+export const ContainerBackview = styled.div`
+  width: 21rem;
   height: 11.5rem;
   background-color: #cccccc;
   border-radius: 10px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  @media (max-width: 430px) {
+    width: 18rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 16rem;
+  }
 `;
+
+export const Range = styled.div`
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #3e3e3e;
+  height: 2.3rem;
+`;
+
+export const RangeWhite = styled.div`
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  width: 80%;
+  background-color: #fff;
+  height: 1.9rem;
+  color: #fff;
+`;
+
+export const Container = styled.div`
+  max-width: 20rem;
+  height: 11.5rem;
+  background-color: #cccccc;
+  border-radius: 10px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  @media (max-width: 430px) {
+    width: 18rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 16rem;
+  }
+`;
+
+export const Flip = styled.div``;
+export const CardEffect = styled.div``;
+
+/////////////////////////////////////////////////////////////
 
 export const Chip = styled.div`
   margin-left: 1.5rem;
@@ -42,6 +86,10 @@ export const CardNumber = styled.h1`
   font-size: 1.1rem;
   text-align: center;
   font-weight: 400;
+  display: flex;
+  @media (max-width: 380px) {
+    font-size: 0.96rem;
+  }
 `;
 
 export const Holder = styled.h1`
@@ -68,4 +116,6 @@ export const Validade = styled.div`
   gap: 1rem;
 `;
 
-export const MonthYear = styled.div``;
+export const MonthYear = styled.div`
+  margin-right: 1rem;
+`;

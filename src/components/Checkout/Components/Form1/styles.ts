@@ -2,11 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.form`
   border: 2px solid #999999;
-  width: 30rem;
+  max-width: 30rem;
 
   border-radius: 0.4rem;
   padding: 2rem;
   background-color: #ffffff;
+  @media (max-width: 430px) {
+    width: 20rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 18rem;
+  }
 `;
 export const Top = styled.div`
   margin-bottom: 2rem;

@@ -28,7 +28,7 @@ export default function Checkout({ Titulo }: any) {
   return (
     <Container>
       <Header>
-        <h1 style={{ color: "black" }}>{Titulo}</h1>
+        <h1 style={{ color: "black" }}>TITULO</h1>
 
         <img src={CompraSeguraIcon} />
       </Header>
