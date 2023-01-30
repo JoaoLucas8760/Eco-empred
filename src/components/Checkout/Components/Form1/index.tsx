@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import FormContext from "../../../../context/FormContext";
 import Input from "../Input";
 import {
   BoxStep,
@@ -21,18 +22,17 @@ export default function Form1({ handleSubmitForm }: props) {
   const [cpfValue, setCpfValue] = useState("");
   const [numberValue, setNumberValue] = useState("");
 
-  async function fetchName() {
-    console.log("fechtado");
-    await fetch("http://localhost:3000/datacard", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name: nameValue }),
-    });
-  }
+  const { formValues, setFormValues }: any = useContext(FormContext);
+  console.log(formValues);
+
   function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
+    setFormValues({
+      fullname: nameValue,
+      email: emailValue,
+      cpf: cpfValue,
+      celphoneNumber: numberValue,
+    });
     handleSubmitForm();
   }
 
@@ -95,7 +95,7 @@ export default function Form1({ handleSubmitForm }: props) {
         />
       </ContainerInputs>
 
-      <BtnContinuar onClick={fetchName}>Continuar</BtnContinuar>
+      <BtnContinuar>Continuar</BtnContinuar>
     </Container>
   );
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import FormContext from "../../../../context/FormContext";
 import Input from "../Input";
 import {
   BoxStep,
@@ -20,7 +21,11 @@ interface DataProps {
   erro?: boolean;
 }
 
-export default function Form2() {
+interface props {
+  handleSubmitForm: () => void;
+}
+
+export default function Form2({ handleSubmitForm }: props) {
   const [cepValue, setCepValue] = useState("");
   const [adressValue, setAdressValue] = useState("");
   const [numeroValue, setNumeroValue] = useState("");
@@ -28,6 +33,17 @@ export default function Form2() {
   const [complementoValue, setCompletoValue] = useState("");
   const [destinatarioValue, setDestinatarioValue] = useState("");
   const [data, setData] = useState<DataProps>();
+
+  const { formValues, setFormValues }: any = useContext(FormContext);
+
+  function handleSubmit(event: { preventDefault: () => void }) {
+    event?.preventDefault();
+
+    setFormValues((prevState: any) => {
+      return { ...prevState, cep: cepValue };
+    });
+    handleSubmitForm();
+  }
 
   async function GetCep() {
     await fetch(`https://viacep.com.br/ws/${cepValue}/json//`)
@@ -60,7 +76,7 @@ export default function Form2() {
         <Subtitle>Cadastre ou selecione um endereço</Subtitle>
       </Top>
 
-      <ContainerInputs>
+      <ContainerInputs onSubmit={handleSubmit}>
         <div style={{ display: "flex", alignItems: "center", gap: "3rem" }}>
           <Input
             label="CEP"
@@ -75,17 +91,6 @@ export default function Form2() {
             maxLength={9}
           />
 
-          {/* {data ? undefined : (
-            <BtnSearch onClick={GetCep} style={{ marginTop: "1.2rem" }}>
-              Buscar
-            </BtnSearch>
-          )} */}
-
-          {/* {data && (
-            <Subtitle style={{ marginTop: "1.2rem" }}>
-              {data.localidade} / {data.uf}
-            </Subtitle>
-          )} */}
           {data != undefined && data.erro ? (
             <Subtitle
               style={{
@@ -106,7 +111,7 @@ export default function Form2() {
         </div>
 
         {data != undefined && !data.erro ? (
-          <ContainerInputs>
+          <>
             <Input
               label="Endereço"
               placeholder=""
@@ -159,8 +164,8 @@ export default function Form2() {
               width={"93%"}
             />
 
-            <BtnContinuar onClick={GetCep}>Salvar</BtnContinuar>
-          </ContainerInputs>
+            <BtnContinuar>Salvar</BtnContinuar>
+          </>
         ) : undefined}
       </ContainerInputs>
     </Container>

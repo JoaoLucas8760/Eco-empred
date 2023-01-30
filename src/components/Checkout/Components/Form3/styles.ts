@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
   border: 2px solid #999999;
   width: 30rem;
 
@@ -112,7 +112,7 @@ export const LineCards = styled.div`
 
 export const Card = styled.img``;
 
-export const ContainerInputs = styled.div`
+export const ContainerInputs = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

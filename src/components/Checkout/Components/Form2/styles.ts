@@ -50,7 +50,7 @@ export const Subtitle = styled.h1`
   font-weight: 400;
 `;
 
-export const ContainerInputs = styled.div`
+export const ContainerInputs = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

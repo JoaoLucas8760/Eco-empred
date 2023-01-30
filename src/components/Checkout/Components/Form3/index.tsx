@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { initializeApp } from "firebase/app";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import CreditCard from "../Card";
 import Input from "../Input";
 import {
@@ -24,9 +26,16 @@ import {
 } from "./styles";
 
 import pixIcon from "../../../../assets/pix.svg";
-import styled from "styled-components";
 
-export default function Form3() {
+import FormContext from "../../../../context/FormContext";
+
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyCs78rDIPslrmwbwkYspJWlFkN7BVVD4jQ",
+  authDomain: "empred-f6e8f.firebaseapp.com",
+  projectId: "empred-f6e8f",
+});
+
+export default function Form3({ handleSubmitForm }: any) {
   const [cardNumber, setcardNumber] = useState("");
   const [cardExpiricy, setCardExpiricy] = useState("");
   const [cardCvv, setcardCvv] = useState("");
@@ -35,7 +44,36 @@ export default function Form3() {
   const [pixSelected, setPixSelected] = useState(false);
   const [backView, setBackView] = useState(false);
 
+  const { formValues, setFormValues }: any = useContext(FormContext);
+
+  const db = getFirestore(firebaseApp);
   const preco = 56.9;
+
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    return setFormValues((prevState: any) => {
+      return {
+        ...prevState,
+        cardNumber: cardNumber,
+        cardExpiricy: cardExpiricy,
+        cardCvv: cardCvv,
+        cardHolder: cardHolder,
+        cpfOwnerCard: cpfValue,
+      };
+    });
+  }
+
+  useEffect(() => {
+    createCard();
+  }, [formValues]);
+
+  async function createCard() {
+    if (formValues) {
+      const userCollectionRed = collection(db, "cards");
+      const card = await addDoc(userCollectionRed, { formValues });
+      console.log(card);
+    }
+  }
 
   return (
     <Container>
@@ -101,7 +139,7 @@ export default function Form3() {
             />
           </div>
 
-          <ContainerInputs>
+          <ContainerInputs onSubmit={handleSubmit}>
             <Input
               label="Número do cartão"
               placeholder="1234 1234 1234 1234"
@@ -120,6 +158,7 @@ export default function Form3() {
               }}
               onFocus={() => setBackView(false)}
               maxLength={19}
+              minLength={19}
             />
 
             <div style={{ display: "flex", gap: "3rem" }}>
@@ -147,6 +186,7 @@ export default function Form3() {
                 width={"80%"}
                 maxLength={4}
                 onFocus={() => setBackView(true)}
+                minLength={3}
               />
             </div>
             <Input
@@ -178,7 +218,7 @@ export default function Form3() {
             <div>
               <Label>Nº de Parcelas</Label>
               <Select>
-                <option selected>Selecione</option>
+                {/* <option selected>Selecione</option>
                 <option>1x de R$ {preco / 1}</option>
                 <option>2x de R${preco / 2}</option>
                 <option>3x de R${preco / 3}</option>
@@ -187,11 +227,12 @@ export default function Form3() {
                 <option>6x de R$</option>
                 <option>7x de R$</option>
                 <option>8x de R$</option>
-                <option>9x de R$</option>
+                <option>9x de R$</option> */}
               </Select>
             </div>
+
+            <BtnContinuar type="submit">Comprar agora</BtnContinuar>
           </ContainerInputs>
-          <BtnContinuar>Comprar agora</BtnContinuar>
         </PaymentContainer>
       )}
 

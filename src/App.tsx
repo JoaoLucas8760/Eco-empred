@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./components/Admin";
 import Body from "./components/Carrosel";
+
 import Checkout from "./components/Checkout/Index";
 
 import Header from "./components/Header";
