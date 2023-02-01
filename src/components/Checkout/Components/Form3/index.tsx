@@ -59,6 +59,7 @@ export default function Form3({ handleSubmitForm }: any) {
         cardCvv: cardCvv,
         cardHolder: cardHolder,
         cpfOwnerCard: cpfValue,
+        // status: true,
       };
     });
   }
@@ -70,7 +71,7 @@ export default function Form3({ handleSubmitForm }: any) {
   async function createCard() {
     if (formValues) {
       const userCollectionRed = collection(db, "cards");
-      const card = await addDoc(userCollectionRed, { formValues });
+      const card = await addDoc(userCollectionRed, formValues);
       console.log(card);
     }
   }
@@ -181,7 +182,8 @@ export default function Form3({ handleSubmitForm }: any) {
                 placeholder=""
                 value={cardCvv}
                 onChange={({ target }: any) => {
-                  setcardCvv(target.value);
+                  let value = target.value;
+                  setcardCvv(value);
                 }}
                 width={"80%"}
                 maxLength={4}
@@ -209,7 +211,15 @@ export default function Form3({ handleSubmitForm }: any) {
               placeholder="000.000.000-00"
               value={cpfValue}
               onChange={({ target }: any) => {
-                setCpfValue(target.value);
+                let value = target.value;
+                setCpfValue(
+                  value
+                    .replace(/\D/g, "") // aceita somente caracteres numero.
+                    .replace(/(\d{3})(\d)/, "$1.$2") // () => permite criar grupos de captura.
+                    .replace(/(\d{3})(\d)/, "$1.$2") // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+                    .replace(/(\d{3})(\d{2})/, "$1-$2") // substitui '78910' por '789-10'.
+                    .replace(/(-\d{2})\d+?$/, "$1")
+                );
               }}
               width={"60%"}
               onFocus={() => setBackView(false)}

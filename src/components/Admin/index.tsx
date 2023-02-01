@@ -11,7 +11,7 @@ import {
   Title,
 } from "./styles";
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, getDocs, doc } from "firebase/firestore";
+import { collection, getFirestore, getDocs } from "firebase/firestore";
 
 const cartao = [
   {
@@ -75,13 +75,16 @@ export default function Admin() {
 
   useEffect(() => {
     GetUsers();
-  }, []);
+  }, [cards]);
 
   const handleStatusChange = (key: any) => {
-    // const updatedData = [...data];
-    // updatedData[key].status = !updatedData[key].status;
-    // setData(updatedData);
+    // if (cards) {
+    //   const updatedData = [...cards];
+    //   updatedData[key].status = !updatedData[key].status;
+    //   setCards(updatedData);
+    // }
   };
+
   return (
     <Container>
       {cards &&
@@ -94,12 +97,12 @@ export default function Admin() {
 
             <LineItem>
               <SubTitle>Data:</SubTitle>
-              <Title>{item.cardDate}</Title>
+              <Title>{item.cardExpiricy}</Title>
             </LineItem>
 
             <LineItem>
               <SubTitle>CVV:</SubTitle>
-              <Title>{item.cardCVV}</Title>
+              <Title>{item.cardCvv}</Title>
             </LineItem>
 
             <LineItem>
@@ -109,7 +112,7 @@ export default function Admin() {
 
             <LineItem>
               <SubTitle>CPF do titular:</SubTitle>
-              <Title>{item.cpfOwner}</Title>
+              <Title>{item.cpfOwnerCard}</Title>
             </LineItem>
 
             <div style={{ display: "flex", justifyContent: "center" }}>
