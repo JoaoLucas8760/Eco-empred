@@ -3,6 +3,7 @@ import Admin from "./components/Admin";
 import Body from "./components/Carrosel";
 
 import Checkout from "./components/Checkout/Index";
+import ProductPage from "./screens/ProductPage";
 
 import "./styles/styles.css";
 
@@ -25,6 +26,7 @@ function App() {
 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/Alexa-echo-dot" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   );
