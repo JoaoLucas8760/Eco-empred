@@ -40,3 +40,10 @@ export const RateTitle = styled.h1`
 export const Description = styled.div`
   margin-top: 1rem;
 `;
+
+export const Paragraph = styled.h1`
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  color: #404040;
+  font-weight: 400;
+`;
