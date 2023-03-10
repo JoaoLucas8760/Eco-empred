@@ -65,17 +65,17 @@ const db = getFirestore(firebaseApp);
 const userCollectionRed = collection(db, "cards");
 
 export default function Admin() {
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState<any>();
 
-  async function GetUsers() {
+  async function GetInfoCards() {
     const data = await getDocs(userCollectionRed);
-    console.log(data);
+
     setCards(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   }
 
   useEffect(() => {
-    GetUsers();
-  }, [cards]);
+    GetInfoCards();
+  }, []);
 
   const handleStatusChange = (key: any) => {
     // if (cards) {
@@ -88,7 +88,7 @@ export default function Admin() {
   return (
     <Container>
       {cards &&
-        cards.map((item, index) => (
+        cards.map((item: any, index: any) => (
           <Card>
             <LineItem>
               <SubTitle>Número do cartao:</SubTitle>

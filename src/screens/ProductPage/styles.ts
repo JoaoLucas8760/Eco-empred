@@ -89,7 +89,7 @@ export const BuyBtn = styled.button`
 export const Footer = styled.div`
   max-width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: 5rem;
   gap: 10rem;
@@ -102,11 +102,23 @@ export const WarrantyBox = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  margin-bottom: 0.5rem;
 `;
 export const WarrantyDescription = styled.h1`
-  max-width: 10rem;
+  max-width: 24rem;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   color: #000;
   font-weight: 400;
+  @media (max-width: 1000px) {
+    max-width: 10rem;
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+    color: #000;
+    font-weight: 400;
+  }
+`;
+
+export const FooterContainer = styled.div`
+  background-color: #0000ee;
 `;

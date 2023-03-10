@@ -79,7 +79,15 @@ export default function Form1({ handleSubmitForm }: props) {
           placeholder="000.000.000-00"
           value={cpfValue}
           onChange={({ target }: any) => {
-            setCpfValue(target.value);
+            let value = target.value;
+            setCpfValue(
+              value
+                .replace(/\D/g, "") // aceita somente caracteres numero.
+                .replace(/(\d{3})(\d)/, "$1.$2") // () => permite criar grupos de captura.
+                .replace(/(\d{3})(\d)/, "$1.$2") // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+                .replace(/(\d{3})(\d{2})/, "$1-$2") // substitui '78910' por '789-10'.
+                .replace(/(-\d{2})\d+?$/, "$1")
+            );
           }}
           width={"60%"}
         />
@@ -89,7 +97,15 @@ export default function Form1({ handleSubmitForm }: props) {
           placeholder="(00) 00000-0000"
           value={numberValue}
           onChange={({ target }: any) => {
-            setNumberValue(target.value);
+            let value = target.value;
+            setNumberValue(
+              value
+                .replace(/\D/g, "")
+                .replace(/(\d{2})(\d)/, "($1) - $2")
+                .replace(/(\d{4})(\d)/, "$1-$2")
+                .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
+                .replace(/(\d{4})\d+?$/, "$1")
+            );
           }}
           width={"60%"}
         />

@@ -24,15 +24,19 @@ import Resume from "./Components/Resume";
 import Form3 from "./Components/Form3";
 import FormContext from "./../../context/FormContext";
 
-export default function Checkout({ Titulo }: any) {
+interface Props {
+  imageUrl: String;
+  productName: String;
+  price: String;
+}
+
+export default function Checkout({ imageUrl, productName, price }: Props) {
   const [step, setStep] = useState(1);
   const [formValues, setFormValues] = useState();
   return (
     <FormContext.Provider value={{ formValues, setFormValues }}>
       <Container>
         <Header>
-          <h1 style={{ color: "black" }}>TITULO</h1>
-
           <img src={CompraSeguraIcon} />
         </Header>
 
@@ -44,7 +48,7 @@ export default function Checkout({ Titulo }: any) {
             setStep3={() => setStep(3)}
           />
 
-          <Resume Titulo={"Barbeador Elétrico"} preco={"R$ 56,90"} />
+          <Resume imageUrl={imageUrl} productName={productName} price={price} />
 
           {step === 1 && <Form1 handleSubmitForm={() => setStep(2)} />}
           {step === 2 && <Form2 handleSubmitForm={() => setStep(3)} />}
@@ -89,7 +93,7 @@ export default function Checkout({ Titulo }: any) {
                   <img src={StarIcon} />
                   <img src={StarIcon} />
                 </div>
-                <Title>2 ANOS DE MERCADO</Title>
+                <Title>RECLAME AQUI</Title>
                 <Subtitle>
                   Possuímos um excelente índice <br /> de atendimento.
                   Compromisso
@@ -155,7 +159,7 @@ export default function Checkout({ Titulo }: any) {
               }}
             >
               <Title style={{ fontWeight: "400", fontSize: "0.9rem" }}>
-                Loja Ecomm Prime:loja.com
+                Varietieshop:varietieshop.com.br
               </Title>
               <Title style={{ fontWeight: "400", fontSize: "0.9rem" }}>
                 R Juiz Ord Francisco X C Pessoa, 47 - Otacio de Lemos Limoeiro -
@@ -165,7 +169,7 @@ export default function Checkout({ Titulo }: any) {
                 © 2023 D DE A FERREIRA SERVIÇOS CNPJ: 48.126.350/0001-25
               </Title>
               <Title style={{ fontWeight: "400", fontSize: "0.9rem" }}>
-                Whatsapp: (11) 95109-1306 E-mail: contato@lojaecommprime.com
+                Whatsapp: (11) 95109-1306 E-mail: contato@varieshops.com.br
               </Title>
             </div>
             <img

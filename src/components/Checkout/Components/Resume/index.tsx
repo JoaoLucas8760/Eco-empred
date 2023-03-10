@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   BoxImage,
   BoxQuantidade,
@@ -23,12 +23,14 @@ import iconPlus from "../../../../assets/plus-light.svg";
 import { ProductBox } from "../../styles";
 
 interface props {
-  Titulo: String;
-  preco: string;
+  imageUrl: String;
+  productName: String;
+  price: any;
 }
-export default function Resume({ Titulo, preco }: props) {
+export default function Resume({ imageUrl, productName, price }: props) {
   const [openResume, setOpenResume] = useState(false);
   const [quantidade, setQuantidade] = useState(1);
+
   return (
     <>
       {openResume === false ? (
@@ -43,7 +45,7 @@ export default function Resume({ Titulo, preco }: props) {
           </div>
 
           <div style={{ display: "flex", gap: "1rem" }}>
-            <Price>{preco}</Price>
+            <Price>R$ {price}</Price>
 
             {openResume === false && (
               <Img src={IconCaretDown} onClick={() => setOpenResume(true)} />
@@ -73,17 +75,21 @@ export default function Resume({ Titulo, preco }: props) {
               <div style={{ height: "7rem" }}>
                 <BoxImage>
                   <img
-                    style={{ width: "100%", height: "100%" }}
-                    src="https://cdn.shopify.com/s/files/1/0681/7136/6685/products/Hf4cd2f62f3a148ff88e5113377dd031dj_400x.jpg?v=1670022647%20400w,%20//cdn.shopify.com/s/files/1/0681/7136/6685/products/Hf4cd2f62f3a148ff88e5113377dd031dj_500x.jpg?v=1670022647%20500w,%20//cdn.shopify.com/s/files/1/0681/7136/6685/products/Hf4cd2f62f3a148ff88e5113377dd031dj_600x.jpg?v=1670022647%20600w,%20//cdn.shopify.com/s/files/1/0681/7136/6685/products/Hf4cd2f62f3a148ff88e5113377dd031dj_700x.jpg?v=1670022647%20700w,%20//cdn.shopify.com/s/files/1/0681/7136/6685/products/Hf4cd2f62f3a148ff88e5113377dd031dj_800x.jpg?v=1670022647%20800w%22"
+                    style={{
+                      width: "4rem",
+                      height: "4rem",
+                      objectFit: "cover",
+                    }}
+                    src={`${imageUrl}`}
                     alt=""
                   />
                 </BoxImage>
               </div>
 
               <ContainerDescription>
-                <SubTitle>{Titulo}</SubTitle>
+                <SubTitle>{productName}</SubTitle>
 
-                <Title style={{ fontSize: "1rem" }}>R$ 56,90</Title>
+                <Title style={{ fontSize: "1rem" }}>R$ {price}</Title>
 
                 <BoxQuantidade>
                   <BtnQuantidade
@@ -115,7 +121,7 @@ export default function Resume({ Titulo, preco }: props) {
           <BoxResume>
             <BoxTitleResume>
               <ResumeTitlte>Produto</ResumeTitlte>
-              <ResumeTitlte>{preco}</ResumeTitlte>
+              <ResumeTitlte>R$ {price}</ResumeTitlte>
             </BoxTitleResume>
             <BoxTitleResume>
               <ResumeTitlte>Frete</ResumeTitlte>
@@ -129,7 +135,9 @@ export default function Resume({ Titulo, preco }: props) {
 
             <BoxTitleResume style={{ marginTop: "1rem" }}>
               <ResumeTitlte style={{ color: "#44c485" }}>Total</ResumeTitlte>
-              <ResumeTitlte style={{ color: "#44c485" }}> {preco}</ResumeTitlte>
+              <ResumeTitlte style={{ color: "#44c485" }}>
+                R$ {parseInt(price) * quantidade}
+              </ResumeTitlte>
             </BoxTitleResume>
           </BoxResume>
         </OpenContainer>
