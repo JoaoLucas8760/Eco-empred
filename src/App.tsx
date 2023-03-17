@@ -42,7 +42,6 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductList />} />
 
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<Admin />} />
 
         <Route path="/createProduct" element={<CreateProduct />} />
