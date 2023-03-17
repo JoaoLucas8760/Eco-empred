@@ -21,7 +21,7 @@ import Shopping from "./assets/shopping-icon.svg";
 import StarIcon from "./assets/star.svg";
 import ShareIcon from "./assets/share-icon.svg";
 import HeartIcon from "./assets/heart-icon.svg";
-import LocIcon from "./assets/Loc-icon.svg";
+import LocIcon from "./assets/loc.svg";
 import Shield from "./assets/shield-check.svg";
 import Package from "./assets/package.svg";
 
